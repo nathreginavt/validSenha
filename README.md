@@ -57,7 +57,7 @@ O que é necessário entender para executar os testes?
 
 Os testes unitários, desenvolvidos com a ferramente JUnit, estão presentes no seguinte caminho:
 
-[src/test/java/com/example/demo/service/ValidSenhaServiceTest.java](https://github.com/nathreginavt/validSenha/blob/main/src/test/java/com/example/demo/service/ValidSenhaServiceTest.java)
+[src/test/java/com/example/demo/service/ValidatePasswordServiceTest.java](https://github.com/nathreginavt/validSenha/blob/main/src/test/java/com/example/demo/service/ValidatePasswordServiceTest.java)
 
 Nessa classe, é possível executar testes para cada regra de validação da senha. 
 
@@ -84,19 +84,17 @@ Primeiramente, é necessário compilar o projeto em sua IDE de preferência.
 Em seguida, com auxílio de alguma ferramenta de teste de API, enviar a seguinte requisição:
 
 ```
-POST localhost:8080/senha/validar/{senhaAValidar}
-
+POST localhost:8080/password/validate/{passwordToValidate}
 ```
 
-Onde, no lugar de {senhaAValidar}, deve ser inserida a String desejada para validação. 
+Onde, no lugar de {passwordToValidate}, deve ser inserida a String desejada para validação. 
 Por exemplo:
 
 ```
-POST localhost:8080/senha/validar/AbTp9!fok
-
+POST localhost:8080/password/validate/AbTp9!fok
 ```
 
-Essa requisição vai retornar que a String enviada é, ou não, válida.
+Essa requisição vai retornar se a String enviada é, ou não, válida.
 
 ## 🛠️ Construído com
 
