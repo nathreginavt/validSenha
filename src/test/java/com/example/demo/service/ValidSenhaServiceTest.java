@@ -44,6 +44,11 @@ public class ValidSenhaServiceTest {
 
     @Test
     public void testSenhaCaractRepetidos() {
+        assertFalse(validSenhaService.isValid("AbTp9!fokAp"));
+    }
+
+    @Test
+    public void testSenhaCaractRepetidosSeguidos() {
         assertFalse(validSenhaService.isValid("AAbTp9!fok"));
     }
 
