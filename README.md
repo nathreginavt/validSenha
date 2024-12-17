@@ -11,7 +11,8 @@ Aplicação web responsável por validar senha, considerando uma senha como vál
 • Não possuir caracteres repetidos dentro do conjunto.
 ```
 
-Foram utilizadas expressões regex para a lógica de validação na camada de serviço, que retorna um Boolean confirmando se a String de senha recebida é válida. Evitando complexidades desnecessárias e separando as responsabilidades das camadas da aplicação.
+Foram utilizadas expressões regex para a lógica de validação na camada de serviço, cada uma em uma variável separada. 
+A fim de evitar complexidades desnecessárias e separar as responsabilidades de cada regra, permitindo alterar ou aumentar as técnicas de validação sem precisar modificar código ja existente.
 
 ## 🚀 Começando
 
@@ -56,33 +57,46 @@ O que é necessário entender para executar os testes?
 
 Os testes unitários, desenvolvidos com a ferramente JUnit, estão presentes no seguinte caminho:
 
-```
 [src/test/java/com/example/demo/service/ValidSenhaServiceTest.java](https://github.com/nathreginavt/validSenha/blob/main/src/test/java/com/example/demo/service/ValidSenhaServiceTest.java)
-```
 
 Nessa classe, é possível executar testes para cada regra de validação da senha. 
 
-Os nomes dos testes indicam o que o mesmo está verificando, por exemplo
+Os nomes dos testes indicam o que o mesmo está verificando, por exemplo:
 
 ```
-"testSenhaCurta()" -> verifica se uma senha com menos de 9 caracteres está válida.
+testSenhaCurta()
+Verifica se uma senha com menos de 9 caracteres está válida.
 ```
 
 ```
-"testSenhaSemMinuscula()" -> verifica se uma senha, não contendo letras minúsculas mas atendendo as demais condições, está válida.
+testSenhaSemMinuscula()
+Verifica se uma senha, não contendo letras minúsculas mas atendendo as demais condições, está válida.
 ```
 
 Dessa forma, é possível validar senhas com configurações diferentes e verificar todas as regras existentes na lógica da aplicação.
 
 ### ⌨️ Executando a API
 
-E como executar a API?
+E como utilizar a API?
+
+Primeiramente, é necessário compilar o projeto em sua IDE de preferência.
+
+Em seguida, com auxílio de alguma ferramenta de teste de API, enviar a seguinte requisição:
+
+```
+POST localhost:8080/senha/validar/{senhaAValidar}
 
 ```
 
- a
+Onde, no lugar de {senhaAValidar}, deve ser inserida a String desejada para validação. 
+Por exemplo:
 
 ```
+POST localhost:8080/senha/validar/AbTp9!fok
+
+```
+
+Essa requisição vai retornar que a String enviada é, ou não, válida.
 
 ## 🛠️ Construído com
 
